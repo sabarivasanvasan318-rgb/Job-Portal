@@ -1,0 +1,230 @@
+/* =========================================
+   JobNest - Online Job Portal
+   style.css
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f5f4f0;
+  --card: #fff;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e2e1db;
+  --accent: #2563eb;
+  --accent-light: #eff4ff;
+  --green: #16a34a;
+  --green-light: #f0fdf4;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --amber: #d97706;
+  --amber-light: #fffbeb;
+  --radius: 12px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+}
+
+/* ---- Layout ---- */
+.app { display: flex; min-height: 100vh; }
+
+/* ---- Sidebar ---- */
+.sidebar {
+  width: 220px;
+  background: #1e293b;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.logo { padding: 20px 20px 16px; border-bottom: 1px solid #334155; }
+.logo h1 { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; color: #fff; letter-spacing: -0.3px; }
+.logo span { font-size: 12px; color: #94a3b8; display: block; margin-top: 2px; }
+
+.role-switch {
+  display: flex;
+  margin: 12px 16px;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 3px;
+}
+.role-btn { flex: 1; padding: 5px; text-align: center; font-size: 11px; cursor: pointer; border-radius: 6px; color: #64748b; transition: all 0.15s; }
+.role-btn.active { background: #1d4ed8; color: #fff; }
+
+.nav { padding: 4px 0; flex: 1; }
+.nav-section { padding: 6px 16px 4px; font-size: 11px; color: #64748b; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 20px; cursor: pointer; color: #94a3b8; font-size: 13.5px; transition: all 0.15s; border-left: 2px solid transparent; }
+.nav-item:hover { background: #334155; color: #e2e8f0; }
+.nav-item.active { background: #1d4ed8; color: #fff; border-left: 2px solid #60a5fa; }
+.nav-icon { font-size: 15px; width: 18px; text-align: center; }
+
+.role-badge { margin: 12px 16px 20px; padding: 8px 12px; background: #0f172a; border-radius: 8px; }
+.role-badge p { font-size: 11px; color: #64748b; }
+.role-badge strong { font-size: 13px; color: #e2e8f0; display: block; margin-top: 2px; }
+
+/* ---- Main ---- */
+.main { flex: 1; overflow-y: auto; }
+
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topbar h2 { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; }
+.topbar-right { display: flex; align-items: center; gap: 10px; }
+
+.search-bar {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 20px; padding: 7px 14px; width: 240px;
+}
+.search-bar input { border: none; background: transparent; font-size: 13px; color: var(--text); outline: none; width: 100%; }
+
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: #1d4ed8; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; cursor: pointer; }
+.notif { width: 34px; height: 34px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; position: relative; }
+.notif-dot { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; position: absolute; top: 6px; right: 7px; }
+
+/* ---- Pages ---- */
+.page { padding: 24px 28px; display: none; }
+.page.active { display: block; }
+
+/* ---- Stats ---- */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+.stat-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+.stat-card .label { font-size: 12px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-card .value { font-size: 26px; font-weight: 600; font-family: 'Sora', sans-serif; margin: 6px 0 4px; }
+.stat-card .delta { font-size: 12px; color: var(--green); }
+.stat-card .delta.down { color: var(--red); }
+
+/* ---- Cards ---- */
+.card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.card h3 { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 16px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+/* ---- Job Cards ---- */
+.job-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.job-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; }
+.job-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(37,99,235,0.08); }
+.job-card.applied { border-left: 3px solid var(--green); }
+
+.company-logo { width: 44px; height: 44px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.job-info { flex: 1; }
+.job-title { font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.job-company { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.job-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.job-action { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.job-date { font-size: 11px; color: var(--muted); }
+
+/* ---- Tags ---- */
+.tag { font-size: 11px; padding: 3px 9px; border-radius: 20px; font-weight: 500; }
+.tag.remote { background: var(--green-light); color: var(--green); }
+.tag.fulltime { background: var(--accent-light); color: var(--accent); }
+.tag.exp { background: #f5f3ff; color: #7c3aed; }
+.tag.salary { background: var(--amber-light); color: var(--amber); }
+.tag.applied-tag { background: var(--green-light); color: var(--green); }
+.tag.rejected { background: var(--red-light); color: var(--red); }
+.tag.shortlisted { background: var(--amber-light); color: var(--amber); }
+.tag.pending { background: #f1f5f9; color: #64748b; }
+
+/* ---- Buttons ---- */
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; border: 1px solid transparent; font-family: 'DM Sans', sans-serif; }
+.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-primary:hover { background: #1d4ed8; }
+.btn-outline { background: #fff; color: var(--text); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-danger { background: var(--red-light); color: var(--red); border-color: var(--red); }
+.btn-success { background: var(--green-light); color: var(--green); border-color: var(--green); }
+.btn-sm { padding: 5px 11px; font-size: 12px; }
+
+/* ---- Filters ---- */
+.filter-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.filter-select { padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; color: var(--text); background: #fff; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.filter-select:focus { outline: none; border-color: var(--accent); }
+
+/* ---- Forms ---- */
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+.form-group input,
+.form-group select,
+.form-group textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13.5px; color: var(--text); background: #fff; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { outline: none; border-color: var(--accent); }
+.form-group textarea { resize: vertical; min-height: 90px; }
+
+/* ---- Profile Hero ---- */
+.profile-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #1d4ed8 100%);
+  border-radius: var(--radius); padding: 28px; color: #fff;
+  margin-bottom: 16px; position: relative; overflow: hidden;
+}
+.profile-hero::after { content: ''; position: absolute; right: -30px; top: -30px; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.profile-avatar { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; margin-bottom: 12px; border: 2px solid rgba(255,255,255,0.3); }
+.profile-name { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+.profile-sub { font-size: 13px; opacity: 0.8; margin-bottom: 16px; }
+.profile-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.profile-tag { padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 20px; font-size: 12px; }
+
+/* ---- Upload Zone ---- */
+.upload-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 24px; text-align: center; margin-bottom: 16px; cursor: pointer; }
+.upload-zone:hover { border-color: var(--accent); background: var(--accent-light); }
+
+.resume-preview { background: var(--green-light); border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--green); }
+.resume-name { font-size: 13px; font-weight: 500; color: var(--green); }
+.resume-meta { font-size: 11px; color: var(--muted); }
+
+/* ---- Table ---- */
+.app-table { width: 100%; border-collapse: collapse; }
+.app-table th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 500; padding: 8px 12px; border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.04em; }
+.app-table td { padding: 12px; border-bottom: 1px solid var(--border); font-size: 13.5px; vertical-align: middle; }
+.app-table tr:last-child td { border-bottom: none; }
+.app-table tr:hover td { background: #fafaf9; }
+
+/* ---- Section Header ---- */
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.section-header h3 { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; }
+
+/* ---- Candidate Row ---- */
+.candidate-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.candidate-row:last-child { border-bottom: none; }
+.cand-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; color: var(--accent); flex-shrink: 0; }
+.cand-info { flex: 1; }
+.cand-name { font-size: 13.5px; font-weight: 500; margin-bottom: 2px; }
+.cand-role { font-size: 12px; color: var(--muted); }
+.cand-actions { display: flex; gap: 6px; }
+
+/* ---- Modal ---- */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 16px; padding: 28px; width: 520px; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+.modal h3 { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+.modal-close { float: right; cursor: pointer; font-size: 20px; color: var(--muted); line-height: 1; }
+
+/* ---- Empty State ---- */
+.empty-state { text-align: center; padding: 48px 24px; color: var(--muted); }
+.empty-state .icon { font-size: 40px; margin-bottom: 12px; }
+.empty-state p { font-size: 14px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .sidebar { width: 60px; }
+  .logo h1, .logo span, .nav-item span:not(.nav-icon), .role-badge, .role-switch { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .page { padding: 16px; }
+}
